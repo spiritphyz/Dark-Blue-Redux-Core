@@ -1,3 +1,4 @@
+/* eslint-disable */
 var simpleLevelPlan = [
   "                      ",
   "                      ",
@@ -296,7 +297,10 @@ Level.prototype.playerTouched = function(type, actor) {
   }
 };
 
-var arrowCodes = {37: "left", 38: "up", 39: "right"};
+// KeyboardEvent.code
+// https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
+// Change 'up' movement key to 'x'
+var keyCodes = {37: "left", 88: "up", 39: "right"};
 
 function trackKeys(codes) {
   var pressed = Object.create(null);
@@ -327,7 +331,7 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
-var arrows = trackKeys(arrowCodes);
+var arrows = trackKeys(keyCodes);
 
 function runLevel(level, Display, andThen) {
   var display = new Display(document.body, level);
