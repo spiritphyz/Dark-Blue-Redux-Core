@@ -246,8 +246,8 @@ Player.prototype.moveX = function(step, level, keys) {
     this.pos = newPos;
 };
 
-var gravity = 30;
-var jumpSpeed = 17;
+var gravity = 30;   // original is 30
+var jumpSpeed = 17; // original is 17
 
 Player.prototype.moveY = function(step, level, keys) {
   this.speed.y += step * gravity;
@@ -321,7 +321,7 @@ function runAnimation(frameFunc) {
   function frame(time) {
     var stop = false;
     if (lastTime != null) {
-      var timeStep = Math.min(time - lastTime, 100) / 1000;
+      var timeStep = Math.min(time - lastTime, 100) / 700; // orig is 1000
       stop = frameFunc(timeStep) === false;
     }
     lastTime = time;
